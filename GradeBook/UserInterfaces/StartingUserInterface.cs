@@ -40,17 +40,18 @@ namespace GradeBook.UserInterfaces
                 return;
             }
             var name = parts[2];
+            var isweighted = Convert.ToBoolean(parts[3]);
             BaseGradeBook gradeBook;
 
             switch (name)
             {
                 case "standard":
-                    gradeBook = new StandardGradeBook(name);
+                    gradeBook = new StandardGradeBook(name, isweighted);
                     Console.WriteLine("Created gradebook {0}.", name);
                     GradeBookUserInterface.CommandLoop(gradeBook);
                     break;
                 case "ranked":
-                    gradeBook = new RankedGradeBook(name);
+                    gradeBook = new RankedGradeBook(name, isweighted);
                     Console.WriteLine("Created gradebook {0}.", name);
                     GradeBookUserInterface.CommandLoop(gradeBook);
                     break;
